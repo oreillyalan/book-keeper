@@ -43,6 +43,7 @@ function validate(nameValue, urlValue){
 // Build Bookmarks DOM
 
 function buildBookmarks() {
+    bookmarksContainer.textContent = '';
     bookmarks.forEach((bookmark) => {
         const {name,url} = bookmark;
         //Item
@@ -123,9 +124,6 @@ function storeBookmarkFunction(e){
     websiteNameEl.focus();
 
 }
-
-
-
 
 
 // Event Listeners
