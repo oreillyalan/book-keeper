@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+:root {
+  --primary-color: #7c59b0;
+  --border-radius: 5px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Karla', sans-serif;
+  background-color: var(--primary-color);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23f6f6f6' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M29 58.58l7.38-7.39A30.95 30.95 0 0 1 29 37.84a30.95 30.95 0 0 1-7.38 13.36l7.37 7.38zm1.4 1.41l.01.01h-2.84l-7.37-7.38A30.95 30.95 0 0 1 6.84 60H0v-1.02a28.9 28.9 0 0 0 18.79-7.78L0 32.41v-4.84L18.78 8.79A28.9 28.9 0 0 0 0 1.02V0h6.84a30.95 30.95 0 0 1 13.35 7.38L27.57 0h2.84l7.39 7.38A30.95 30.95 0 0 1 51.16 0H60v27.58-.01V60h-8.84a30.95 30.95 0 0 1-13.37-7.4L30.4 60zM29 1.41l-7.4 7.38A30.95 30.95 0 0 1 29 22.16 30.95 30.95 0 0 1 36.38 8.8L29 1.4zM58 1A28.9 28.9 0 0 0 39.2 8.8L58 27.58V1.02zm-20.2 9.2A28.9 28.9 0 0 0 30.02 29h26.56L37.8 10.21zM30.02 31a28.9 28.9 0 0 0 7.77 18.79l18.79-18.79H30.02zm9.18 20.2A28.9 28.9 0 0 0 58 59V32.4L39.2 51.19zm-19-1.4a28.9 28.9 0 0 0 7.78-18.8H1.41l18.8 18.8zm7.78-20.8A28.9 28.9 0 0 0 20.2 10.2L1.41 29h26.57z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+h1 {
+  color:white;
+  padding: 20px;
+  background: rgba(0, 0, 0, .5);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  width:275px;
+  margin: 20px auto 10px;
+  user-select: none;
+}
+
+h1:hover {
+  background-color:  rgba(0, 0, 0, .8);
+}
+
+/* Bookmarks */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item {
+  background:rgba(0, 0, 0, .5);
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 10px;
+
+}
+
+.item:hover {
+  background-color:  rgba(0, 0, 0, .6);
+}
+
+a {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+a:link,
+a:visited {
+  color: white;
+  text-decoration: none;
+
+}
+
+a:hover,
+a:active {
+  text-decoration: underline;
+  
+}
+
+.fa-times-circle {
+  float: right;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.name{
+  margin-top:20px;
+  margin-right: 20px;
+}
+
+.name img {
+  height: 20px;
+  width: 20px;
+  vertical-align: sub;
+  margin-right: 5px;
+
+}
+/* Media Query: Large Smart Phone (Vertical) */
+@media screen and (max-width: 600px){
+  .container{
+    flex-direction: column;
+  }
+}
