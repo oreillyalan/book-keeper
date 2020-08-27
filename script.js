@@ -6,6 +6,9 @@ const websiteNameEl = document.getElementById('website-name');
 const websiteUrlEl = document.getElementById('website-url');
 const bookmarksContainer = document.getElementById('bookmarks-container');
 
+let bookmarks = [];
+
+
 // Event Handlers
 function showModal(){
     modal.classList.add('show-modal');
@@ -24,8 +27,18 @@ function storeBookmarkFunction(e){
     const nameValue = websiteNameEl.value;
     let urlValue = websiteUrlEl.value;
     !urlValue.includes('http://','https://') ? urlValue = `https://${urlValue}` : false;
-    console.log(urlValue);
-    validate(nameValue, urlValue);
+    if(!validate(nameValue, urlValue)){
+        return false;
+    }
+    const bookmark = {
+        name : nameValue,
+        url : urlValue,
+    };
+    bookmarks.push(bookmark);
+    localStorage.setItem('bookmarks',JSON.stringify(bookmarks));
+    bookmarkForm.reset();
+    websiteNameEl.focus();
+
 }
 
 
@@ -40,7 +53,15 @@ bookmarkForm.addEventListener('submit', storeBookmarkFunction);
 function validate(nameValue, urlValue){
     const expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
     const regex = new RegExp(expression);
-    (!nameValue || !urlValue) ? (alert('Please enter data for both fields') , false): true;
-    urlValue.match(regex) ? true: alert('Please provide a valid web address');
+    if(!nameValue || !urlValue) {
+        alert('Please enter data for both fields');
+        return false;
+    }
 
+    if(!urlValue.match(regex)){ 
+        alert('Please provide a valid web address');
+        return false;
+    }
+
+    return true;
 }
